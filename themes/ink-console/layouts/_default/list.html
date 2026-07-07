@@ -1,0 +1,43 @@
+{{ define "main" }}
+<section class="section post">
+  <div class="container">
+    <div class="list-head">
+      {{- with .Params.eyebrow }}<p class="eyebrow" style="margin-bottom:1.2rem;">{{ . }}</p>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{- with .Content }}<div class="list-lede prose">{{ . }}</div>{{ end }}
+    </div>
+
+    {{- $pages := .Pages }}
+    {{- if .IsHome }}{{ $pages = site.RegularPages }}{{ end }}
+    {{- $paginator := .Paginate $pages }}
+
+    {{- if $paginator.Pages }}
+    <ol class="post-list" role="list" style="margin-top:2.5rem;">
+      {{- range $paginator.Pages }}
+      {{ partial "post-card.html" . }}
+      {{- end }}
+    </ol>
+
+    {{- if gt $paginator.TotalPages 1 }}
+    <nav class="pagination" aria-label="Pagination">
+      {{- if $paginator.HasPrev }}
+      <a href="{{ $paginator.Prev.URL }}" aria-label="Previous page">←</a>
+      {{- else }}<span class="disabled">←</span>{{ end }}
+      {{- range $paginator.Pagers }}
+        {{- if eq . $paginator }}
+        <span class="current" aria-current="page">{{ .PageNumber }}</span>
+        {{- else }}
+        <a href="{{ .URL }}">{{ .PageNumber }}</a>
+        {{- end }}
+      {{- end }}
+      {{- if $paginator.HasNext }}
+      <a href="{{ $paginator.Next.URL }}" aria-label="Next page">→</a>
+      {{- else }}<span class="disabled">→</span>{{ end }}
+    </nav>
+    {{- end }}
+    {{- else }}
+    <p style="margin-top:2rem;color:var(--paper-dim);font-family:var(--font-mono);font-size:0.9rem;">Nothing here yet.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

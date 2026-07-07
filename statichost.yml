@@ -1,0 +1,12 @@
+# statichost.eu build configuration — https://www.statichost.eu/docs/build-config/
+#
+# Pinned Hugo (extended) image so builds are reproducible. Bump the tag to
+# upgrade Hugo; keep it in sync with the theme's theme.toml min_version.
+image: hugomods/hugo:0.164.0
+
+# `hugo` defaults to the production environment, so hugo.IsProduction is true
+# here — that enables CSS minify + fingerprint in the theme's head partial.
+command: hugo --gc --minify
+
+# Hugo writes the generated site to ./public
+public: public

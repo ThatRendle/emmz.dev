@@ -1,0 +1,15 @@
+{{- /* Renders one post as a card. Context: a Page. */ -}}
+<li class="post-card">
+  <div class="post-card-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time>
+    {{- if .ReadingTime }}
+    <span class="dot">·</span>
+    <span>{{ .ReadingTime }} min read</span>
+    {{- end }}
+  </div>
+  <h2 class="post-card-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+  {{- with .Description | default .Summary }}
+  <p class="post-card-excerpt">{{ . | plainify | truncate 200 }}</p>
+  {{- end }}
+  <span class="post-card-more">Read post</span>
+</li>

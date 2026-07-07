@@ -1,0 +1,63 @@
+baseURL = 'https://emmz.dev/'
+locale = 'en-gb'
+title = 'Emmz Rendle'
+theme = 'ink-console'
+enableRobotsTXT = true
+
+# Blog sections that feed the homepage + RSS
+[params]
+  author = 'Emmz Rendle'
+  description = 'Notes on Claude Code, agentic workflows, and building software with AI — by Emmz Rendle.'
+  eyebrow = 'writing · claude code · agentic dev'
+  tagline = 'You direct. The agents type.'
+  logoText = 'emmz.dev'
+  footerNote = 'Built with Hugo · Ink Console'
+  mainSections = ['posts']
+  consolePath = 'posts'
+  aboutURL = '/about/'
+  # image = 'images/og-default.jpg'   # optional default Open Graph image (place in static/images/)
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = 'tags'
+
+[menu]
+  [[menu.main]]
+    name = 'Posts'
+    url = '/posts/'
+    weight = 10
+  [[menu.main]]
+    name = 'Tags'
+    url = '/tags/'
+    weight = 20
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 30
+
+  [[menu.footer]]
+    name = 'GitHub'
+    url = 'https://github.com/ThatRendle'
+    weight = 10
+    [menu.footer.params]
+      external = true
+  [[menu.footer]]
+    name = 'LinkedIn'
+    url = 'https://linkedin.com/in/rendledotdev'
+    weight = 20
+    [menu.footer.params]
+      external = true
+  [[menu.footer]]
+    name = 'RSS'
+    url = '/index.xml'
+    weight = 30
+
+[markup]
+  [markup.highlight]
+    noClasses = true
+    style = 'nord'
+    tabWidth = 2
+  [markup.goldmark.renderer]
+    unsafe = true

@@ -1,0 +1,15 @@
+{{ define "main" }}
+<section class="section post">
+  <div class="container">
+    <div class="list-head">
+      <h1>{{ .Title }}</h1>
+    </div>
+    {{- $data := .Data }}
+    <div class="tags" style="margin-top:2.5rem;">
+      {{- range $name, $taxonomy := $data.Terms.ByCount }}
+      <a class="tag" href="{{ $taxonomy.Page.RelPermalink }}">{{ $taxonomy.Page.Title }} ({{ $taxonomy.Count }})</a>
+      {{- end }}
+    </div>
+  </div>
+</section>
+{{ end }}

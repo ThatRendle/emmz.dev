@@ -1,0 +1,50 @@
+{{- $title := .Title -}}
+{{- $isHome := .IsHome -}}
+{{- $pageTitle := cond $isHome site.Title (printf "%s · %s" .Title site.Title) -}}
+{{- $description := or .Description .Summary site.Params.description -}}
+{{- $description = $description | plainify | chomp -}}
+{{- $ogType := cond .IsPage "article" "website" -}}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{- with site.Params.author }}
+<meta name="author" content="{{ . }}">
+{{- end }}
+
+{{/* Open Graph */}}
+<meta property="og:type" content="{{ $ogType }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+{{- with (or .Params.image site.Params.image) }}
+<meta property="og:image" content="{{ . | absURL }}">
+{{- end }}
+{{- if .IsPage }}
+<meta property="article:published_time" content="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">
+{{- end }}
+
+{{/* Twitter */}}
+<meta name="twitter:card" content="{{ cond (isset (or .Params site.Params) "image") "summary_large_image" "summary" }}">
+<meta name="twitter:title" content="{{ .Title }}">
+<meta name="twitter:description" content="{{ $description }}">
+
+{{/* Self-hosted fonts — preloaded */}}
+<link rel="preload" href="{{ "fonts/fraunces.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/inter.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ "fonts/jetbrains.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+
+{{/* Styles — Hugo Pipes: bundle, minify, fingerprint */}}
+{{- $css := resources.Get "css/main.css" }}
+{{- if hugo.IsProduction }}
+  {{- $css = $css | minify | fingerprint }}
+{{- end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}"{{ if hugo.IsProduction }} integrity="{{ $css.Data.Integrity }}"{{ end }}>
+
+{{- with site.Params.feed | default true }}
+<link rel="alternate" type="application/rss+xml" href="{{ "index.xml" | absURL }}" title="{{ site.Title }}">
+{{- end }}

@@ -1,0 +1,60 @@
+{{ define "main" }}
+{{- $posts := where site.RegularPages "Type" "in" site.Params.mainSections -}}
+{{- if not $posts }}{{ $posts = site.RegularPages }}{{ end -}}
+
+{{/* ── Masthead — console hero ─────────────────────────────────────────── */}}
+<section class="section masthead" aria-label="Introduction">
+  <div class="container masthead-inner">
+    <div class="masthead-copy">
+      {{- with site.Params.eyebrow }}
+      <p class="eyebrow masthead-eyebrow">{{ . }}</p>
+      {{- end }}
+      <h1 class="masthead-title">{{ site.Title }}<span class="cursor" aria-hidden="true"></span></h1>
+      {{- with site.Params.tagline }}
+      <p class="masthead-tagline">{{ . }}</p>
+      {{- end }}
+      <div class="masthead-lede">
+        {{- with .Content }}{{ . }}{{ else }}{{ with site.Params.description }}<p>{{ . }}</p>{{ end }}{{ end }}
+      </div>
+      <div class="masthead-cta">
+        {{- with (index site.Menus.main 0) }}
+        <a href="{{ .URL }}" class="btn btn-primary">Read the blog</a>
+        {{- end }}
+        {{- with site.Params.aboutURL }}
+        <a href="{{ . }}" class="btn btn-secondary">About</a>
+        {{- end }}
+      </div>
+    </div>
+
+    {{/* The console — recent posts as a terminal listing */}}
+    <div class="console" aria-hidden="true">
+      <div class="console-bar">
+        <span class="console-dot"></span>
+        <span class="console-file">~/{{ or site.Params.consolePath "posts" }}</span>
+      </div>
+<pre class="console-body"><span class="c-comment">$ ls -t posts/ | head</span>
+{{ range first 4 $posts }}<span class="c-key">{{ .File.ContentBaseName | printf "%-24s" }}</span> {{ .Date.Format "2006-01-02" }}
+{{ end }}<span class="c-comment"># the latest, always on top</span>
+<span class="c-you">you</span>  ▸ read on<span class="cursor"></span></pre>
+    </div>
+  </div>
+</section>
+
+{{/* ── Recent posts ────────────────────────────────────────────────────── */}}
+<section class="section" aria-labelledby="latest-heading">
+  <div class="container">
+    <div class="post-list-head">
+      <h1 id="latest-heading">Latest posts</h1>
+    </div>
+    {{- if $posts }}
+    <ol class="post-list" role="list">
+      {{- range first 10 $posts }}
+      {{ partial "post-card.html" . }}
+      {{- end }}
+    </ol>
+    {{- else }}
+    <p style="color: var(--paper-dim); font-family: var(--font-mono); font-size: 0.9rem;">No posts yet — the console is warming up.</p>
+    {{- end }}
+  </div>
+</section>
+{{ end }}

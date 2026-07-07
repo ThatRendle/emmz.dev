@@ -1,0 +1,13 @@
+name = "Ink Console"
+license = "MIT"
+licenselink = ""
+description = "Dark-first blog theme. Two voices — Fraunces (human) + JetBrains Mono (machine) — with Inter as the quiet body, hairline borders, and a single teal accent. Adapted from the 'Effective Claude Code' workshop site."
+homepage = "https://emmz.dev/"
+demosite = "https://emmz.dev/"
+tags = ["blog", "dark", "minimal", "monospace", "terminal", "responsive"]
+features = ["blog", "dark-mode", "responsive", "self-hosted-fonts"]
+min_version = "0.128.0"
+
+[author]
+  name = "Emmz Rendle"
+  homepage = "https://emmz.dev/"

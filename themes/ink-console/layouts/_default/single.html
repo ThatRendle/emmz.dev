@@ -1,0 +1,45 @@
+{{ define "main" }}
+<article class="section post">
+  <div class="container">
+    <header class="post-header">
+      {{- with .Params.eyebrow }}
+      <p class="eyebrow post-eyebrow">{{ . }}</p>
+      {{- else }}
+      <p class="eyebrow post-eyebrow">{{ or .Type "post" }}</p>
+      {{- end }}
+      <h1 class="post-title">{{ .Title }}</h1>
+      <div class="post-meta">
+        <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+        {{- if .ReadingTime }}
+        <span class="dot">·</span>
+        <span>{{ .ReadingTime }} min read</span>
+        {{- end }}
+        {{- with .Params.author | default site.Params.author }}
+        <span class="dot">·</span>
+        <span>{{ . }}</span>
+        {{- end }}
+      </div>
+    </header>
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    <footer class="post-footer">
+      {{- with .Params.tags }}
+      <div class="tags">
+        {{- range . }}
+        <a class="tag" href="{{ "/tags/" | relLangURL }}{{ . | urlize }}/">{{ . }}</a>
+        {{- end }}
+      </div>
+      {{- end }}
+      {{- if or .PrevInSection .NextInSection }}
+      <nav class="post-nav" aria-label="Post navigation">
+        <span>{{ with .PrevInSection }}<a class="prev" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</span>
+        <span>{{ with .NextInSection }}<a class="next" href="{{ .RelPermalink }}">{{ .Title }}</a>{{ end }}</span>
+      </nav>
+      {{- end }}
+    </footer>
+  </div>
+</article>
+{{ end }}
