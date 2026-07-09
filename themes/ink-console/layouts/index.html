@@ -32,8 +32,8 @@
         <span class="console-dot"></span>
         <span class="console-file">~/{{ or site.Params.consolePath "posts" }}</span>
       </div>
-<pre class="console-body"><span class="c-comment">$ ls -t posts/ | head</span>
-{{ range first 4 $posts }}<span class="c-key">{{ .File.ContentBaseName | printf "%-24s" }}</span> {{ .Date.Format "2006-01-02" }}
+<pre class="console-body"><span class="c-comment">$ ls -t posts/ | head 4</span>
+{{ range first 4 $posts }}<a href="{{ .RelPermalink }}" tabindex="-1"><span class="c-key">{{ .File.ContentBaseName | printf "%-24s" }}</span></a> {{ .Date.Format "2006-01-02" }}
 {{ end }}<span class="c-comment"># the latest, always on top</span>
 <span class="c-you">you</span>  ▸ read on<span class="cursor"></span></pre>
     </div>
