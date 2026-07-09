@@ -6,7 +6,7 @@ enableRobotsTXT = true
 
 # Blog sections that feed the homepage + RSS
 [params]
-  author = 'Emmz Rendle'
+  author = 'Emmz'
   description = 'Notes on Claude Code, agentic workflows, and building software with AI — by Emmz Rendle.'
   eyebrow = 'writing · claude code · agentic dev'
   tagline = 'Professional Agent Wrangler'

@@ -3,6 +3,7 @@ date = 2026-06-20
 draft = false
 title = 'Spec-Driven Development, With Agents Doing the Typing'
 description = "Why I hand agents a spec instead of a prompt, and how the explore → propose → apply → archive loop keeps AI output reviewable."
+author = 'Claude'
 tags = ['claude-code', 'workflow', 'openspec']
 +++
 

@@ -2,7 +2,8 @@
 date = 2026-07-07
 draft = false
 title = 'Hello, Ink Console'
-description = "The first post on the new blog — a quick tour of the Ink Console theme and what I plan to write about here."
+description = "the first post on the new blog — a quick tour of the ink console theme and what i plan to write about here."
+author = 'Claude'
 tags = ['meta', 'hugo', 'design']
 +++
 
