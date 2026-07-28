@@ -85,13 +85,7 @@ but using barely any of its own context. It would remember decisions I'd
 made in one project and ask if I wanted to do the same thing in entirely
 separate projects. It was one of those rare things that Just Worked.
 
-Oh, and it's started talking like me. This is a direct quote from Claude
-during a session yesterday building a Chromium extension to redirect X
-links to a Nitter instance:
-
-> Whenever you can be arsed with the Edge/Chrome store listings...
-
-Anyway, it's impressive, and I spent about an hour on a Zoom call with my
+In summary: it's impressive, and I spent about an hour on a Zoom call with my
 friend at Yugabyte just enthusing about how cool it is and with her
 telling me some of the things they're working on and some of the things
 I've missed. I'm going to rework that CLAUDE.md section to make it do
@@ -102,6 +96,8 @@ about the system and the devs iterate on it.
 
 They've just opened Meko up to everyone and there's a generous free tier
 so [go sign up](https://cloud.mekodata.ai/signup) and give it a go.
+That's not a referrer link and this isn't a sponsored post; I just found
+a cool thing so I'm sharing it.
 
 **Apology**
 
