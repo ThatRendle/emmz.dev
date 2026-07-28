@@ -1,5 +1,5 @@
 +++
-date = 2026-07-15
+date = 2026-07-28
 draft = false
 title = 'The Claude extension I forgot I was using'
 description = "On Yugabyte's new Meko memory for agents."
