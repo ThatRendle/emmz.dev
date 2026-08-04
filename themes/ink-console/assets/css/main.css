@@ -685,6 +685,31 @@ code {
   color: var(--paper-dim);
 }
 
+/* Post CTA — workshop call-out, sits between the article body and the footer */
+.post-cta {
+  max-width: var(--measure);
+  margin-top: 3.5rem;
+  padding: 1.6rem 1.7rem 1.8rem;
+  border: 1px solid var(--hairline-str);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--accent) 6%, var(--ink-raised));
+}
+.post-cta-eyebrow { margin-bottom: 1.1rem; }
+.post-cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 2.4vw, 1.6rem);
+  font-weight: 560;
+  line-height: 1.25;
+  color: var(--paper);
+}
+.post-cta-blurb {
+  margin-top: 0.7rem;
+  color: var(--paper-dim);
+}
+.post-cta-btn { margin-top: 1.5rem; }
+.post-cta-btn span { transition: transform 0.15s var(--ease); }
+.post-cta-btn:hover span { transform: translateX(2px); }
+
 /* Post footer — tags + prev/next */
 .post-footer {
   max-width: var(--measure);

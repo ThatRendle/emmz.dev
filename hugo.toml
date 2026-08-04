@@ -17,6 +17,15 @@ enableRobotsTXT = true
   aboutURL = '/about/'
   # image = 'images/og-default.jpg'   # optional default Open Graph image (place in static/images/)
 
+  # End-of-post call-out. Remove `url` to hide it everywhere;
+  # set `noCta = true` in a post's front matter to hide it on that post.
+  [params.workshop]
+    url = 'https://claude.rendle.dev'
+    eyebrow = 'workshop'
+    title = 'Want to do this stuff yourself?'
+    blurb = 'Effective Claude Code is my hands-on workshop covering the agentic workflows I write about here — the practices, the tooling, and the habits that make Claude Code actually productive.'
+    cta = 'Book the workshop'
+
 [pagination]
   pagerSize = 10
 

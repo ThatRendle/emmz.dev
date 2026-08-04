@@ -1,0 +1,18 @@
+{{- /* Workshop call-out. Renders on main-section pages only; a post can opt out
+       with `noCta: true` in its front matter. Configured via [params.workshop]. */ -}}
+{{- if and (in site.Params.mainSections .Section) (not .Params.noCta) }}
+{{- with site.Params.workshop }}
+{{- if .url }}
+<aside class="post-cta" aria-labelledby="post-cta-title">
+  <p class="eyebrow post-cta-eyebrow">{{ or .eyebrow "workshop" }}</p>
+  <h2 class="post-cta-title" id="post-cta-title">{{ or .title "Effective Claude Code" }}</h2>
+  {{- with .blurb }}
+  <p class="post-cta-blurb">{{ . }}</p>
+  {{- end }}
+  <a class="btn btn-primary post-cta-btn" href="{{ .url }}" target="_blank" rel="noopener">
+    {{ or .cta "Book the workshop" }}<span aria-hidden="true">→</span>
+  </a>
+</aside>
+{{- end }}
+{{- end }}
+{{- end }}
