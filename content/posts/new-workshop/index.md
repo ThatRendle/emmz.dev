@@ -18,9 +18,9 @@ time off work (hello fellow freelancers) you can just sacrifice
 watching some sportsball or playing *Elden Ring* or whatever you
 do to unwind.
 
-> **Even more exciting news!** For the first couple of dates, 
-you can get 50% off by using the code `EMMZ50` when signing
-up on Eventbrite.
+> **Even more exciting news!** For the first workshop, 
+you can get 50% off by using the code `EMMZ50` when 
+[signing up on Eventbrite](https://www.eventbrite.com/e/effective-claude-code-tickets-1996344279480).
 
 ## Why a live workshop?
 
