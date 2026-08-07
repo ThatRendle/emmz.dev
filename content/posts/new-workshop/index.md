@@ -62,6 +62,10 @@ whether it's something better coming along or some kind
 of rug-pull moment, then I'll write a new workshop and teach
 that instead.
 
+If you want to use something else after the workshop, everything
+we teach is transferrable to other agents, models, IDEs
+and harnesses.
+
 ## What does the workshop cover?
 
 On the first half-day we start by one-shot prompting
@@ -95,6 +99,18 @@ important thing is that I can read all of them, because
 at the end of the day programming is variables, loops,
 conditions and functions, and the syntax really doesn't
 change that much.
+
+## What do I need?
+
+You'll need a computer with Claude Code and Node.js
+installed, and a decent terminal app; Terminal for
+Windows users, and whatever you prefer for Mac and
+Linux. I'm currently using [cmux](https://cmux.com/)
+because it's really good for running half a dozen
+Claude sessions simultaneously. You should also have
+access to a Claude subscription, at least the $20/month
+personal subscription, although if you can afford Max,
+or you have a corporate account, that's even better.
 
 ## Have you run this workshop before?
 
